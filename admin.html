@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+</head>
+<body>
+
+<h2>📊 All Bills</h2>
+<div id="data"></div>
+
+<script>
+async function loadData(){
+  let snapshot = await db.collection("bills").get();
+
+  snapshot.forEach(doc=>{
+    let d = doc.data();
+    document.getElementById("data").innerHTML += `
+      <p>₹${d.total} - ${d.shop}</p>
+    `;
+  });
+}
+
+loadData();
+</script>
+
+</body>
+</html>
