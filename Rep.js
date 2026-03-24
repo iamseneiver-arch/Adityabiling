@@ -1,0 +1,3 @@
+(decodedText) => {
+  fetchProduct(decodedText);
+}
